@@ -19,6 +19,7 @@ library(mosaic)   # Load additional packages here
 library(tidyverse)
 library(readr)
 library(visNetwork)
+library(igraph)
 knitr::opts_chunk$set(
   tidy=FALSE,     # display code as typed
   size="small")   # slightly smaller font for code
@@ -29,7 +30,10 @@ nodes <- read_csv("nodes.csv")
 edges <- read_csv("edges.csv")
 ```
 ```{r}
-View(nodes)
+visNetwork(nodes, edges, width = "100%") %>%
+  visPhysics(stabilization = FALSE) %>%
+  visEdges(smooth = FALSE) %>%
+  visIgraphLayout()
 ```
 
 
