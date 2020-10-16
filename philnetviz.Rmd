@@ -1,0 +1,36 @@
+---
+title: "Philosopher Network Visualization"
+author: "Matthew Bone"
+date: "10/15/20"
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+library(mosaic)   # Load additional packages here 
+library(tidyverse)
+library(readr)
+library(visNetwork)
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+```{r}
+nodes <- read_csv("nodes.csv")
+edges <- read_csv("edges.csv")
+```
+```{r}
+View(nodes)
+```
+
+
+
