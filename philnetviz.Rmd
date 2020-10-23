@@ -20,19 +20,52 @@ library(tidyverse)
 library(readr)
 library(visNetwork)
 library(igraph)
+library(rpart)
 knitr::opts_chunk$set(
   tidy=FALSE,     # display code as typed
   size="small")   # slightly smaller font for code
 ```
 
 ```{r}
-nodes <- read_csv("nodes.csv")
-edges <- read_csv("edges.csv")
+outdegree <- function(node, edges) {
+  
+  edges %>%
+    filter(from == node) %>%
+    nrow()
+  
+}
+
+outdegree <- Vectorize(outdegree, vectorize.args = "node")
+
+indegree <- function(node, edges) {
+  
+  edges %>%
+    filter(to == node) %>%
+    nrow()
+  
+}
+
+indegree <- Vectorize(indegree, vectorize.args = "node")
+
 ```
+
+```{r}
+edges <- read_csv("edges.csv")
+
+nodes <- read_csv("nodes.csv") %>%
+  mutate(title = paste0("<h3 style='color:Black;font-size:8px;'>", label, "</h3>"),
+         indegree = indegree(id, edges),
+         outdegree = outdegree(id, edges),
+         value = outdegree^2,
+         color = indegree)
+```
+
 ```{r}
 visNetwork(nodes, edges, width = "100%") %>%
-  visPhysics(stabilization = FALSE) %>%
-  visEdges(smooth = FALSE) %>%
+  visPhysics(stabilization = F) %>%
+  visEdges(smooth = F, arrows = 'from') %>%
+  visOptions(highlightNearest = T,
+             nodesIdSelection = list(enabled = T)) %>%
   visIgraphLayout()
 ```
 
