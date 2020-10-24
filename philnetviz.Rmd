@@ -22,6 +22,7 @@ library(visNetwork)
 library(igraph)
 library(rpart)
 library(ggformula)
+library(Hmisc)
 source("functions.R")
 knitr::opts_chunk$set(
   tidy=FALSE,     # display code as typed
@@ -36,19 +37,32 @@ nodes <- read_csv("nodes.csv") %>%
   mutate(title = paste0("<h3 style='color:Black;font-size:8px;'>", label, "</h3>"),
          indegree = indegree(id, edges),
          outdegree = outdegree(id, edges),
-         value = outdegree^2)
+         born = as.numeric(substr(born, 1, 4)),
+         died = as.numeric(substr(died, 1, 4)),
+         born = if_else(is.na(born), if_else(born > died, -born, born), born),
+         died = if_else(born < 0, -died, died),
+         level = as.numeric(cut_number(born, 30)),
+         value = outdegree) %>%
+  filter(!is.na(born))
 
-gf_histogram(~ nodes$born)
+gf_histogram(~ nodes$level, stat = "count")
 ```
 
 ```{r}
-visNetwork(nodes, edges, width = "80%") %>%
-  visPhysics(stabilization = F) %>%
-  visEdges(smooth = F, arrows = 'from') %>%
-  visOptions(highlightNearest = T,
-             nodesIdSelection = list(enabled = T)) %>%
-  visIgraphLayout() %>% 
-  visHierarchicalLayout(direction = "LR")
+visNetwork(nodes, edges, width = "100%") %>%
+  visPhysics(enabled = T,
+             hierarchicalRepulsion = list(nodeDistance = 250)) %>%
+  visEdges(smooth = F, arrows = 'to') %>%
+  visHierarchicalLayout(enabled = T, 
+                        direction = "LR", 
+                        levelSeparation = 200, 
+                        sortMethod = "directed",
+                        blockShifting = T) %>%
+  visOptions(highlightNearest = list(enabled = T, 
+                                     algorithm = "hierarchical",
+                                     degree = list(from = 0, to = 2)),
+             nodesIdSelection = list(enabled = T))
+
 ```
 
 
