@@ -65,9 +65,7 @@ visNetwork(nodes, edges, width = "100%") %>%
                                      algorithm = "hierarchical",
                                      degree = list(from = 0, to = 2)),
              nodesIdSelection = list(enabled = T)) %>%
-  visNodes(scaling = list(max = 100)) %>%
-  visConfigure(enabled = T)
-
+  visNodes(scaling = list(max = 100))
 ```
 
 
