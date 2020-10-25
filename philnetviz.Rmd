@@ -39,7 +39,8 @@ nodes <- read_csv("nodes.csv") %>%
          outdegree = outdegree(id, edges),
          born = as.numeric(substr(born, 1, 4)),
          died = as.numeric(substr(died, 1, 4)),
-         born = if_else(is.na(born), if_else(born > died, -born, born), born),
+         born = if_else(!is.na(born) & !is.na(died), 
+                        if_else(born > died, -born, born), born),
          died = if_else(born < 0, -died, died),
          level = as.numeric(cut_number(born, 50)),
          value = outdegree,
@@ -64,7 +65,8 @@ visNetwork(nodes, edges, width = "100%") %>%
                                      algorithm = "hierarchical",
                                      degree = list(from = 0, to = 2)),
              nodesIdSelection = list(enabled = T)) %>%
-  visNodes(scaling = list(max = 100))
+  visNodes(scaling = list(max = 100)) %>%
+  visConfigure(enabled = T)
 
 ```
 
