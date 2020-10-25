@@ -4,8 +4,8 @@ author: "Matthew Bone"
 date: "10/15/20"
 output: 
   html_document:
-    fig_height: 3
-    fig_width: 5
+    fig_height: 8
+    fig_width: 8
   pdf_document:
     fig_height: 3
     fig_width: 5
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
   size="small")   # slightly smaller font for code
 ```
 
-```{r}
+```{r, include=FALSE}
 edges <- read_csv("edges.csv")
 
 nodes <- read_csv("nodes.csv") %>%
@@ -41,27 +41,30 @@ nodes <- read_csv("nodes.csv") %>%
          died = as.numeric(substr(died, 1, 4)),
          born = if_else(is.na(born), if_else(born > died, -born, born), born),
          died = if_else(born < 0, -died, died),
-         level = as.numeric(cut_number(born, 30)),
-         value = outdegree) %>%
+         level = as.numeric(cut_number(born, 50)),
+         value = outdegree,
+         color = colorize(indegree)) %>%
   filter(!is.na(born))
 
-gf_histogram(~ nodes$level, stat = "count")
+nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 ```
 
-```{r}
+```{r, echo=FALSE}
 visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
-             hierarchicalRepulsion = list(nodeDistance = 250)) %>%
+             hierarchicalRepulsion = list(nodeDistance = 500,
+                                          centralGravity = .2)) %>%
   visEdges(smooth = F, arrows = 'to') %>%
   visHierarchicalLayout(enabled = T, 
                         direction = "LR", 
-                        levelSeparation = 200, 
+                        levelSeparation = 300, 
                         sortMethod = "directed",
                         blockShifting = T) %>%
   visOptions(highlightNearest = list(enabled = T, 
                                      algorithm = "hierarchical",
                                      degree = list(from = 0, to = 2)),
-             nodesIdSelection = list(enabled = T))
+             nodesIdSelection = list(enabled = T)) %>%
+  visNodes(scaling = list(max = 100))
 
 ```
 
