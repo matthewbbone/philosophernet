@@ -54,7 +54,7 @@ nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
              hierarchicalRepulsion = list(nodeDistance = 500,
-                                          centralGravity = .2)) %>%
+                                          centralGravity = .1)) %>%
   visEdges(smooth = F, arrows = 'to') %>%
   visHierarchicalLayout(enabled = T, 
                         direction = "LR", 
