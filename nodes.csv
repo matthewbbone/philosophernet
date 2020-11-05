@@ -150,7 +150,7 @@ n148,Michel Henry,1922-01-10 00:00:00,2002-07-03 00:00:00
 n149,Roman Ingarden,1893-02-05 00:00:00,1970-06-04 00:00:00
 n150,Emmanuel Levinas,1906-01-12 00:00:00,1995-12-25 00:00:00
 n151,Gabriel Marcel,1889-12-07 00:00:00,1973-10-08 00:00:00
-n152,Jean-Luc Marion,1946-07-03 00:00:00,
+n152,Jean-Luc Marion,,
 n153,Maurice Merleau-Ponty,1908-03-14 00:00:00,1961-05-03 00:00:00
 n154,José Ortega y Gasset,1883-05-09 00:00:00,1955-10-18 00:00:00
 n155,Jan Patočka,1907-06-01 00:00:00,1977-03-13 00:00:00
@@ -160,7 +160,7 @@ n158,Paul Ricœur,1913-02-27 00:00:00,2005-05-20 00:00:00
 n159,Gilbert Ryle,1900-08-19 00:00:00,1976-10-06 00:00:00
 n160,Max Scheler,1874-08-22 00:00:00,1928-05-19 00:00:00
 n161,Wilfrid Sellars,1912-05-20 00:00:00,1989-07-02 00:00:00
-n162,Edith Stein,,
+n162,Edith Stein,1891-10-12 00:00:00,1942-08-09 00:00:00
 n163,Bernard Stiegler,1952-04-01 00:00:00,2020-08-05 00:00:00
 n164,Anaxagoras,0500-01-01,0428-01-01
 n165,Archelaus (philosopher),,
@@ -197,7 +197,7 @@ n195,Jean Bodin,1530-01-01,1596-01-01
 n196,Martin Buber,1878-02-08 00:00:00,1965-06-13 00:00:00
 n197,Franz Rosenzweig,1886-12-25 00:00:00,1929-12-10 00:00:00
 n198,Emil Fackenheim,1916-06-22 00:00:00,2003-09-18 00:00:00
-n199,Clement of Alexandria,,
+n199,Clement of Alexandria,0150-01-01,0215-01-01
 n200,Meister Eckhart,1260-01-01,1328-01-01
 n201,John Philoponus,0490-01-01,0570-01-01
 n202,Nicole Oresme,1325-01-01,1382-07-11 00:00:00
@@ -236,7 +236,7 @@ n234,Hubert Dreyfus,1929-10-15 00:00:00,2017-04-22 00:00:00
 n235,Hans-Georg Gadamer,1900-02-11 00:00:00,2002-03-13 00:00:00
 n236,Hans Jonas,1903-05-10 00:00:00,1993-02-05 00:00:00
 n237,Herbert Marcuse,1898-07-19 00:00:00,1979-07-29 00:00:00
-n238,Jean-Luc Nancy,1940-07-26 00:00:00,
+n238,Jean-Luc Nancy,,
 n239,Karl Rahner,1904-03-05 00:00:00,1984-03-30 00:00:00
 n240,Richard Rorty,1931-10-04 00:00:00,2007-06-08 00:00:00
 n241,Peter Sloterdijk,1947-06-26 00:00:00,
@@ -281,7 +281,7 @@ n279,Walter Kaufmann (philosopher),1921-07-01 00:00:00,1980-09-04 00:00:00
 n280,Alexandre Kojève,1902-04-28 00:00:00,1968-06-04 00:00:00
 n281,György Lukács,1885-04-13 00:00:00,1971-06-04 00:00:00
 n282,John McDowell,1942-03-07 00:00:00,
-n283,Robert B. Pippin,1948-09-14 00:00:00,
+n283,Robert B. Pippin,,
 n284,Gillian Rose,1947-09-20 00:00:00,1995-12-09 00:00:00
 n285,Peter Singer,1946-07-06 00:00:00,
 n286,Charles Taylor (philosopher),1931-11-05 00:00:00,
@@ -397,7 +397,7 @@ n395,François Quesnay,1694-06-04 00:00:00,1774-12-16 00:00:00
 n396,Bruno Bauch,1877-01-19 00:00:00,1942-02-27 00:00:00
 n397,Friedrich Adolf Trendelenburg,1802-11-30 00:00:00,1872-01-24 00:00:00
 n398,Carl Gustav Hempel,1905-01-08 00:00:00,1997-11-09 00:00:00
-n399,Alexander Pruss,1973-01-05 00:00:00,
+n399,Alexander Pruss,,
 n400,Ernest Sosa,1940-06-17 00:00:00,
 n401,Paracelsus,1493-01-01,1541-09-24 00:00:00
 n402,William Petty,1623-05-26 00:00:00,1687-12-16 00:00:00
@@ -446,7 +446,7 @@ n444,Jakob Friedrich Fries,1773-08-23 00:00:00,1843-08-10 00:00:00
 n445,William A. Earle,1919-01-01,1988-10-16 00:00:00
 n446,Ernest Gellner,1925-12-09 00:00:00,1995-11-05 00:00:00
 n447,Michael Redhead,1929-12-30 00:00:00,2020-08-31 00:00:00
-n448,Donald A. Gillies,1944-01-01,
+n448,Donald A. Gillies,,
 n449,Manfred Frank,1945-03-22 00:00:00,
 n450,Franz Bopp,1791-09-14 00:00:00,1867-10-23 00:00:00
 n451,Anton Marty,1847-10-18 00:00:00,1914-10-01 00:00:00
@@ -455,7 +455,7 @@ n453,Ernst Bloch,1885-07-08 00:00:00,1977-08-04 00:00:00
 n454,Ernst Troeltsch,1865-02-17 00:00:00,1923-02-01 00:00:00
 n455,Ferdinand de Saussure,1857-11-26 00:00:00,1913-02-22 00:00:00
 n456,Claude Lévi-Strauss,1908-11-28 00:00:00,2009-10-30 00:00:00
-n457,John D. Caputo,1940-10-26 00:00:00,
+n457,John D. Caputo,,
 n458,Peter Rollins,1973-03-31 00:00:00,
 n459,Zygmunt Bauman,1925-11-19 00:00:00,2017-01-09 00:00:00
 n460,Pierre Teilhard de Chardin,1881-05-01 00:00:00,1955-04-10 00:00:00
@@ -467,7 +467,7 @@ n465,María Zambrano,1904-04-22 00:00:00,1991-02-06 00:00:00
 n466,Alain de Benoist,1943-12-11 00:00:00,
 n467,Josef Pieper,1904-05-04 00:00:00,1997-11-06 00:00:00
 n468,George Boolos,1940-09-04 00:00:00,1996-05-27 00:00:00
-n469,Richard Boyd,1942-05-19 00:00:00,
+n469,Richard Boyd,,
 n470,Paul Benacerraf,1931-01-01,
 n471,Roman Jakobson,1896-10-11 00:00:00,1982-07-18 00:00:00
 n472,Herbert James Paton,1887-03-30 00:00:00,1969-08-02 00:00:00
@@ -523,7 +523,7 @@ n521,Norwood Russell Hanson,1924-08-17 00:00:00,1967-04-18 00:00:00
 n522,Herbert Butterfield,1900-10-07 00:00:00,1979-07-20 00:00:00
 n523,Philip Kitcher,1947-02-20 00:00:00,
 n524,Sam Harris,1967-04-09 00:00:00,
-n525,Peter Carruthers (philosopher),1952-06-16 00:00:00,
+n525,Peter Carruthers (philosopher),,
 n526,Jacques Ellul,1912-01-06 00:00:00,1994-05-19 00:00:00
 n527,Johann Gustav Droysen,1808-07-06 00:00:00,1884-06-19 00:00:00
 n528,Lucien Goldmann,1913-07-20 00:00:00,1970-10-08 00:00:00
@@ -548,7 +548,7 @@ n546,Carneades,0214-01-01,0129-01-01
 n547,Marquis de Condorcet,1743-09-17 00:00:00,1794-03-29 00:00:00
 n548,Joseph Butler,1692-05-18 00:00:00,1752-06-16 00:00:00
 n549,John Anderson (philosopher),1893-11-01 00:00:00,1962-07-06 00:00:00
-n550,Michael Huemer,1969-12-27 00:00:00,
+n550,Michael Huemer,,
 n551,Étienne Bonnot de Condillac,1714-09-30 00:00:00,1780-08-02 00:00:00
 n552,Fredric Jameson,1934-04-14 00:00:00,
 n553,Carlo Cafiero,1846-09-01 00:00:00,1892-07-17 00:00:00
@@ -566,9 +566,9 @@ n564,Jonathan Dancy,1946-05-08 00:00:00,
 n565,Toby Ord,1979-07-18 00:00:00,
 n566,Iris Murdoch,1919-07-15 00:00:00,1999-02-08 00:00:00
 n567,Michael Sandel,1953-03-05 00:00:00,
-n568,Michael Walzer,1935-03-03 00:00:00,
+n568,Michael Walzer,,
 n569,Ernesto Laclau,1935-10-06 00:00:00,2014-04-13 00:00:00
-n570,Alenka Zupančič,1966-04-01 00:00:00,
+n570,Alenka Zupančič,,
 n571,Rumi,1207-09-30 00:00:00,1273-12-17 00:00:00
 n572,Muhammad Asad,1900-07-02 00:00:00,1992-02-20 00:00:00
 n573,Israr Ahmed,1932-04-26 00:00:00,2010-04-14 00:00:00
@@ -587,7 +587,7 @@ n585,Ibn al-Nafis,1213-01-01,1288-12-17 00:00:00
 n586,John Austin (legal philosopher),1790-03-03 00:00:00,1859-12-01 00:00:00
 n587,H. L. A. Hart,1907-07-18 00:00:00,1992-12-19 00:00:00
 n588,Ronald Dworkin,1931-12-11 00:00:00,2013-02-14 00:00:00
-n589,T. M. Scanlon,1940-06-28 00:00:00,
+n589,T. M. Scanlon,,
 n590,Christine Korsgaard,1952-04-09 00:00:00,
 n591,Onora O'Neill,1941-08-23 00:00:00,
 n592,Michel Serres,1930-09-01 00:00:00,2019-06-01 00:00:00
@@ -615,7 +615,7 @@ n613,Charles Hartshorne,1897-06-05 00:00:00,2000-10-09 00:00:00
 n614,August Schleicher,1821-02-19 00:00:00,1868-12-06 00:00:00
 n615,R. B. Braithwaite,1900-01-15 00:00:00,1990-04-21 00:00:00
 n616,Kurt Baier,1917-01-26 00:00:00,2010-11-07 00:00:00
-n617,David Papineau,1947-01-01,
+n617,David Papineau,,
 n618,Johann Heinrich Pestalozzi,1746-01-12 00:00:00,1827-02-17 00:00:00
 n619,Gilles-Gaston Granger,1920-01-28 00:00:00,2016-08-24 00:00:00
 n620,Friedrich Albert Lange,1828-09-28 00:00:00,1875-11-21 00:00:00
@@ -623,7 +623,7 @@ n621,Zhou Dunyi,1017-01-01,1073-01-01
 n622,Cheng Yi (philosopher),1033-01-01,1107-01-01
 n623,Jaegwon Kim,1934-09-12 00:00:00,2019-11-27 00:00:00
 n624,Robert Nozick,1938-11-16 00:00:00,2002-01-23 00:00:00
-n625,Peter Achinstein,1935-06-30 00:00:00,
+n625,Peter Achinstein,,
 n626,Émile Boutroux,1845-07-28 00:00:00,1921-11-22 00:00:00
 n627,Alan Watts,1915-01-06 00:00:00,1973-11-16 00:00:00
 n628,Mortimer J. Adler,1902-12-28 00:00:00,2001-06-28 00:00:00
@@ -637,7 +637,7 @@ n635,Abdulhakim Arvasi,1865-01-01,1943-01-01
 n636,Jean-François Melon,1675-01-01,1738-01-01
 n637,John Perry (philosopher),1943-01-16 00:00:00,
 n638,Sandra Laugier,,
-n639,Herbert Blumer,,
+n639,Herbert Blumer,1900-03-07 00:00:00,1987-04-13 00:00:00
 n640,Leonard Nelson,1882-07-11 00:00:00,1927-10-29 00:00:00
 n641,Edward S. Casey,1939-02-24 00:00:00,
 n642,Michel Bréal,1832-03-26 00:00:00,1915-11-25 00:00:00
@@ -648,7 +648,7 @@ n646,Gustav Teichmüller,1832-11-19 00:00:00,1888-05-22 00:00:00
 n647,Curt John Ducasse,1881-07-07 00:00:00,1969-09-03 00:00:00
 n648,Donald Cary Williams,1899-05-28 00:00:00,1983-01-16 00:00:00
 n649,Richard Taylor (philosopher),1919-11-05 00:00:00,2003-10-30 00:00:00
-n650,Fred Feldman (philosopher),1941-01-01,
+n650,Fred Feldman (philosopher),,
 n651,Edmund Gettier,1927-10-31 00:00:00,
 n652,John Colet,1467-01-01,1519-09-16 00:00:00
 n653,Thomas Cajetan,1469-02-20 00:00:00,1534-08-09 00:00:00
@@ -674,7 +674,7 @@ n672,Henry Jones (philosopher),1852-11-30 00:00:00,1922-02-04 00:00:00
 n673,David Stove,1927-09-15 00:00:00,1994-06-02 00:00:00
 n674,Raymond Williams,1921-08-31 00:00:00,1988-01-26 00:00:00
 n675,Joseph Dietzgen,1828-10-28 00:00:00,1888-04-15 00:00:00
-n676,Mladen Dolar,1951-01-29 00:00:00,
+n676,Mladen Dolar,,
 n677,Bayazid Bastami,0804-01-01,0874-01-01
 n678,Muhammad Abduh,1849-01-01,1905-07-11 00:00:00
 n679,Rashid Rida,1865-09-23 00:00:00,1935-08-22 00:00:00
@@ -683,15 +683,15 @@ n681,Louis Blanc,1811-10-29 00:00:00,1882-12-06 00:00:00
 n682,Svetozar Marković,1846-09-21 00:00:00,1875-02-26 00:00:00
 n683,Dmitry Pisarev,1840-10-14 00:00:00,1868-07-16 00:00:00
 n684,Abu Hayyan al-Gharnati,1256-01-01,1344-01-01
-n685,Joseph Raz,1939-03-21 00:00:00,
+n685,Joseph Raz,,
 n686,Norberto Bobbio,1909-10-18 00:00:00,2004-01-09 00:00:00
-n687,Stephen Darwall,1946-01-01,
+n687,Stephen Darwall,,
 n688,Eduard Bernstein,1850-01-06 00:00:00,1932-12-18 00:00:00
 n689,David Schmidtz,1955-01-01,
 n690,Patrick Suppes,1922-03-17 00:00:00,2014-11-17 00:00:00
 n691,Isaac Levi,1930-06-30 00:00:00,2018-12-25 00:00:00
 n692,Taha Hussein,1889-11-15 00:00:00,1973-10-28 00:00:00
-n693,Fred Evans (philosopher),1944-06-06 00:00:00,
+n693,Fred Evans (philosopher),,
 n694,Jan Baudouin de Courtenay,1845-03-13 00:00:00,1929-11-03 00:00:00
 n695,Lucien Tesnière,1893-05-13 00:00:00,1954-12-06 00:00:00
 n696,Dawud al-Zahiri,0815-01-01,0883-01-01
@@ -713,7 +713,7 @@ n711,Ljubodrag Simonović,1949-01-01 00:00:00,
 n712,Ibn Mada',1116-01-01,1195-01-01
 n713,Al-Dhahabi,1274-10-05 00:00:00,1348-02-03 00:00:00
 n714,Al-Shafiʽi,0767-01-01,0019-01-01
-n715,Ahmad ibn Hanbal,,
+n715,Ahmad ibn Hanbal,0780-01-01,0855-08-02 00:00:00
 n716,Ibn Kullab,,0240-01-01
 n717,Ishaq ibn Rahwayh,0161-01-01,0238-01-01
 n718,Yahya ibn Ma'in,0774-01-01,0847-01-01
@@ -733,11 +733,11 @@ n731,Zaynab bint ʿUmar b. al-Kindī,,0699-01-01
 n732,Malik ibn Anas,0711-01-01,0795-01-01
 n733,Sayyida Nafisa,0762-01-01,0824-01-01
 n734,ʽAbd al-Razzaq al-Sanʽani,0126-01-01,0211-01-01
-n735,Ibn Qudamah,,
+n735,Ibn Qudamah,0541-01-01,1223-07-07 00:00:00
 n736,Harith al-Muhasibi,0781-01-01,0857-01-01
 n737,Junayd of Baghdad,0830-01-01,0910-01-01
-n738,Muhammad al-Bukhari,,
-n739,Al-Ash'ari,,
+n738,Muhammad al-Bukhari,0810-07-21 00:00:00,0870-09-01 00:00:00
+n739,Al-Ash'ari,0260-01-01,0324-01-01
 n740,Ibn Hibban,0270-01-01,0354-01-01
 n741,Ibrahim ibn Ya'qub al-Juzajani,0796-01-01,0872-01-01
 n742,Shah Waliullah Dehlawi,1703-02-21 00:00:00,1762-08-20 00:00:00
