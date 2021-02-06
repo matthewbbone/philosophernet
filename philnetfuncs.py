@@ -296,6 +296,7 @@ def table_scrape(prefix, ref, vars):
         td = r.find("td")
         if not th is None and not td is None and th.text in vars:
             if th.text in ["Born","Died"]: row_dict[th.text] = date_clean(td.text)
+            elif th.text == "School": row_dict[th.text] = school_clean(td)
     
     var_list = []
     for var in vars:
@@ -304,6 +305,18 @@ def table_scrape(prefix, ref, vars):
         else: var_list.append([var,None])
         
     return var_list
+
+# This function takes in a td bs4 object which contains a list of 
+# schools a given philosopher belongs to. It then parses this list
+# turns it into a list of the schools and passes it back. 
+def school_clean(td):
+
+    schools = td.find_all('a')
+    schools = [s.get_text() for s in schools]
+    schools = [re.sub('\[.*\]', '', s) for s in schools]
+    schools = [s for s in schools if s != '']
+
+    return schools
 
 # This function takes in the correct wiki url prefix, 
 # a dictionary of philosophers as produced by
