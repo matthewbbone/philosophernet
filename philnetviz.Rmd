@@ -23,6 +23,9 @@ library(igraph)
 library(rpart)
 library(ggformula)
 library(Hmisc)
+library(leaflet)
+library(htmlwidgets)
+
 source("functions.R")
 knitr::opts_chunk$set(
   tidy=FALSE,     # display code as typed
@@ -51,7 +54,7 @@ nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 ```
 
 ```{r, echo=FALSE}
-visNetwork(nodes, edges, width = "100%") %>%
+philosophernet <- visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
              hierarchicalRepulsion = list(nodeDistance = 500,
                                           centralGravity = .1)) %>%
@@ -67,6 +70,12 @@ visNetwork(nodes, edges, width = "100%") %>%
              nodesIdSelection = list(enabled = T)) %>%
   visNodes(scaling = list(max = 100))
 ```
+
+
+```{r}
+saveWidget(philosophernet, file = "philosophernet.html")
+```
+
 
 
 
