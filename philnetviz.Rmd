@@ -47,10 +47,24 @@ nodes <- read_csv("nodes.csv") %>%
          died = if_else(born < 0, -died, died),
          level = as.numeric(cut_number(born, 50)),
          value = outdegree,
-         color = colorize(indegree)) %>%
+         color = colorize(indegree),
+         Analytic = if_else(`Analytic philosophy` == 1 | 
+                              `Analytic Philosophy` == 1 |
+                              `Analytic` == 1 | 
+                              `analytic philosophy` == 1 | 
+                              `Analytic school`, 1, 0),
+         Continental = if_else(`Continental` == 1 |
+                                 `Continental Philosophy` == 1 |
+                                 `Continental philosophy` == 1, 1, 0)) %>%
+  select(-c(`Analytic philosophy`,`Analytic Philosophy`,`analytic philosophy`,`Analytic school`, 
+            `Continental Philosophy`, `Continental philosophy`)) %>%
   filter(!is.na(born))
 
 nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
+```
+
+```{r}
+
 ```
 
 ```{r, echo=FALSE}
