@@ -111,7 +111,7 @@ filter_schools <- function(x) {
 
 nodes$schools <- lapply(nodes$schools, filter_schools)
 
-View(nodes %>% select(schools))
+#View(nodes %>% select(schools))
 
 nodes$schools[5]
 str_split(nodes$schools[5], ':')[[1]]

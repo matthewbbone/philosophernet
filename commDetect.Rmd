@@ -1,0 +1,88 @@
+---
+title: "Philosopher Net Community Detection"
+author: "Matthew Bone"
+date: "04/02/2021"
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+library(mosaic)   # Load additional packages here 
+library(tidyverse)
+library(readr)
+library(visNetwork)
+library(igraph)
+library(rpart)
+library(ggformula)
+library(Hmisc)
+library(leaflet)
+library(htmlwidgets)
+set.seed(1)
+
+source("functions.R")
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+```{r, include=FALSE}
+toss_list = '(analytic|klb1|cnm0|cnm2|cnm3|cnm4|alab1|alab2|alab3|alab4|alab5|alab6|alab7|alab8|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|gnew1)'
+
+edges <- read_csv("dedges.csv")
+nodes <- read_csv("dnodes.csv") %>%
+  mutate(school = if_else(analytic == 1, 'Analytic', 'Continental'),
+         comms = gsub('continental','School',comms),
+         comms = gsub('klb0','Kernighan-Lin Bisection',comms),
+         comms = gsub('cnm1','Clauset-Newman-Moore Greedy Algorithm',comms),
+         comms = gsub('alab0','Asynchronous Label Propagation',comms),
+         comms = gsub('lab0','Label Propagation',comms),
+         comms = gsub('aflu0','Asynchronous Fluid Community Algorithm',comms),
+         comms = gsub('gnew0','Girvan-Newman Algorithm',comms),
+         comms = gsub(toss_list,'',comms),
+         comms = gsub('(,,|,,,|,,,,|,,,,,)',',', comms),
+         comms = gsub(',', '  ', comms),
+         comms = str_trim(comms, side = 'both'),
+         comms = gsub('  ', ',', comms),
+         Community = comms,
+         title = paste0("<h3 style='color:Black;font-size:8px;'>", 
+                        "<p>", label, "</p>",
+                        "<p>School: ", school, "</p>",
+                        "<p>Born: ", born, "</p>",
+                        "<p>Died: ", died, "</p>",
+                        "</h3>"))
+```
+
+```{r}
+visNetwork(nodes, edges, width = "100%") %>%
+  visPhysics(enabled = T,
+             maxVelocity = 15, 
+             minVelocity = 10,
+             stabilization = list(enabled = T,
+                                  iterations = 1000),
+             solver = 'forceAtlas2Based',
+             adaptiveTimestep = T,
+             forceAtlas2Based = list(gravitationalConstant = -300,
+                                     avoidOverlap = 1,
+                                     springLength = 200,
+                                     springConstant = .05,
+                                     damping = 1)) %>%
+  visEdges(smooth = F, 
+           width = .2) %>%
+  visNodes(size = 50) %>%
+  visGroups(groupname = 'continental', color = 'red')  %>%
+  visOptions(selectedBy = list(variable = 'Community', 
+                               multiple = T,
+                               highlight = T,
+                               hideColor = list(background = '#CD5C58',
+                                                border = '#DC3C3B')))
+  
+```
+
