@@ -37,7 +37,7 @@ edges <- read_csv("edges.csv")
 
 nodes <- read_csv("nodes.csv") %>%
   arrange(born) %>%
-  mutate(title = paste0("<h3 style='color:Black;font-size:8px;'>", label, "</h3>"),
+  mutate(font.size = 0,
          indegree = indegree(id, edges),
          outdegree = outdegree(id, edges),
          born = as.numeric(substr(born, 1, 4)),
@@ -48,47 +48,109 @@ nodes <- read_csv("nodes.csv") %>%
          level = as.numeric(cut_number(born, 50)),
          value = outdegree,
          color = colorize(indegree),
-         Analytic = if_else(`Analytic philosophy` == 1 | 
-                              `Analytic Philosophy` == 1 |
-                              `Analytic` == 1 | 
-                              `analytic philosophy` == 1 | 
-                              `Analytic school`, 1, 0),
-         Continental = if_else(`Continental` == 1 |
-                                 `Continental Philosophy` == 1 |
-                                 `Continental philosophy` == 1, 1, 0)) %>%
-  select(-c(`Analytic philosophy`,`Analytic Philosophy`,`analytic philosophy`,`Analytic school`, 
-            `Continental Philosophy`, `Continental philosophy`)) %>%
-  filter(!is.na(born))
+         title = paste0("<h3 style='color:Black;font-size:8px;'>", 
+                        "<p>", label, "</p>",
+                        "<p>Born: ", born, "</p>",
+                        "<p>Died: ", died, "</p>",
+                        "</h3>")) %>%
+  filter(!is.na(born) & !(label %in% c('Ibn Hibban', 'Al-Hakim al-Nishapuri')))
 
 nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 ```
 
 ```{r}
+n <- colSums(Filter(is.numeric, nodes), na.rm = T)
+school <- labels(colSums(Filter(is.numeric, nodes), na.rm = T))
 
+school_count <- data.frame(school, n) %>%
+  filter(!(school %in% c('born','died','level','outdegree','value','indegree')))
+
+rownames(school_count) <- c()
+
+top_schools <- school_count %>%
+  filter(n > 9)
+
+top_schools %>%
+  arrange(-n)
+
+intersect(top_schools$school, school_count$school)
 ```
 
 ```{r, echo=FALSE}
 philosophernet <- visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
-             hierarchicalRepulsion = list(nodeDistance = 500,
-                                          centralGravity = .1)) %>%
-  visEdges(smooth = F, arrows = 'to') %>%
+             maxVelocity = 10,
+             minVelocity = 5,
+             timestep = .5,
+             hierarchicalRepulsion = list(nodeDistance = 100),
+             stabilization = list(iterations = 500)) %>%
+  visEdges(smooth = F, 
+           arrows = 'to',
+           width = .2) %>%
   visHierarchicalLayout(enabled = T, 
                         direction = "LR", 
-                        levelSeparation = 300, 
+                        levelSeparation = 50, 
                         sortMethod = "directed",
                         blockShifting = T) %>%
   visOptions(highlightNearest = list(enabled = T, 
                                      algorithm = "hierarchical",
                                      degree = list(from = 0, to = 2)),
              nodesIdSelection = list(enabled = T)) %>%
-  visNodes(scaling = list(max = 100))
+  visNodes(scaling = list(min = 5, max = 30))
 ```
+
+```{r}
+
+filter_schools <- function(x) {
+  
+  paste(intersect(str_split(x, ':')[[1]], top_schools$school), collapse = ',')
+  
+}
+
+
+
+nodes$schools <- lapply(nodes$schools, filter_schools)
+
+View(nodes %>% select(schools))
+
+nodes$schools[5]
+str_split(nodes$schools[5], ':')[[1]]
+intersect(str_split(nodes$schools[5], ':')[[1]], top_schools$school)
+paste(intersect(str_split(nodes$schools[5], ':')[[1]], top_schools$school), collapse = ',')
+```
+
+```{r}
+visNetwork(nodes, edges, width = "100%") %>%
+  visPhysics(enabled = T,
+             maxVelocity = 10,
+             minVelocity = 5,
+             timestep = .5,
+             hierarchicalRepulsion = list(nodeDistance = 100),
+             stabilization = list(iterations = 500)) %>%
+  visEdges(smooth = F, 
+           arrows = 'to',
+           width = .2) %>%
+  visHierarchicalLayout(enabled = T, 
+                        direction = "LR", 
+                        levelSeparation = 50, 
+                        sortMethod = "directed",
+                        blockShifting = T) %>%
+  visOptions(selectedBy = list(variable = 'schools', multiple = T),
+             highlightNearest = F) %>%
+  visNodes(scaling = list(min = 5, max = 30))
+  
+```
+
 
 
 ```{r}
 saveWidget(philosophernet, file = "philosophernet.html")
 ```
+
+```{r}
+philosophernet
+```
+
 
 
 
