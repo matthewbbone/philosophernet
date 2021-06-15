@@ -34,20 +34,22 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, include=FALSE}
-toss_list = '(analytic|klb1|cnm0|cnm2|cnm3|cnm4|alab1|alab2|alab3|alab4|alab5|alab6|alab7|alab8|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|gnew1)'
+toss_list = '(analytic|custom_cnm5|custom_cnm6|custom_cnm7|custom_cnm8|custom_cnm9|custom_cnm10|custom_cnm11|custom_cnm12|custom_cnm13|custom_klb0|custom_cnm0|custom_cnm1|custom_cnm2|custom_cnm3|custom_cnm4|custom_lab1|custom_lab2|custom_lab3|custom_lab4|custom_lab5|custom_lab6|custom_lab7|custom_aflu1|custom_klb0|cnm0|cnm2|cnm3|cnm4|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|klb0)'
 
 edges <- read_csv("dedges.csv")
-nodes <- read_csv("dnodes.csv") %>%
+nodes <- read_csv("comm_nodes.csv") %>%
   mutate(school = if_else(analytic == 1, 'Analytic', 'Continental'),
-         comms = gsub('continental','School',comms),
-         comms = gsub('klb0','Kernighan-Lin Bisection',comms),
-         comms = gsub('cnm1','Clauset-Newman-Moore Greedy Algorithm',comms),
-         comms = gsub('alab0','Asynchronous Label Propagation',comms),
-         comms = gsub('lab0','Label Propagation',comms),
-         comms = gsub('aflu0','Asynchronous Fluid Community Algorithm',comms),
-         comms = gsub('gnew0','Girvan-Newman Algorithm',comms),
+         comms = gsub('continental','Actual School',comms),
+         comms = gsub(',klb1',',Kernighan-Lin Bisection',comms),
+         comms = gsub(',custom_klb1',',Kernighan-Lin Bisection - Custom',comms),
+         comms = gsub(',cnm1',',Clauset-Newman-Moore Greedy Algorithm',comms),
+         comms = gsub(',custom_cnm1,',',Clauset-Newman-Moore Greedy Algorithm - Custom,',comms),
+         comms = gsub(',lab0',',Label Propagation',comms),
+         comms = gsub(',custom_lab0',',Label Propagation',comms),
+         comms = gsub(',aflu0',',Asynchronous Fluid Community Algorithm',comms),
+         comms = gsub(',custom_aflu0',',Asynchronous Fluid Community Algorithm - Custom',comms),
          comms = gsub(toss_list,'',comms),
-         comms = gsub('(,,|,,,|,,,,|,,,,,)',',', comms),
+         comms = gsub(',,*',',', comms),
          comms = gsub(',', '  ', comms),
          comms = str_trim(comms, side = 'both'),
          comms = gsub('  ', ',', comms),
@@ -58,6 +60,8 @@ nodes <- read_csv("dnodes.csv") %>%
                         "<p>Born: ", born, "</p>",
                         "<p>Died: ", died, "</p>",
                         "</h3>"))
+
+nodes
 ```
 
 ```{r}
