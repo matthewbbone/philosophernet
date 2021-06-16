@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, include=FALSE}
-toss_list = '(analytic|custom_cnm5|custom_cnm6|custom_cnm7|custom_cnm8|custom_cnm9|custom_cnm10|custom_cnm11|custom_cnm12|custom_cnm13|custom_klb0|custom_cnm0|custom_cnm1|custom_cnm2|custom_cnm3|custom_cnm4|custom_lab1|custom_lab2|custom_lab3|custom_lab4|custom_lab5|custom_lab6|custom_lab7|custom_aflu1|custom_klb0|cnm0|cnm2|cnm3|cnm4|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|klb0)'
+toss_list = '(analytic|custom_cnm5|custom_cnm6|custom_cnm7|custom_cnm8|custom_cnm9|custom_cnm10|custom_cnm11|custom_cnm12|custom_cnm13|custom_klb0|custom_cnm0|custom_cnm1|custom_cnm2|custom_cnm3|custom_cnm4|custom_lab1|custom_lab2|custom_aflu1|custom_klb0|cnm0|cnm2|cnm3|cnm4|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|klb0)'
 
 edges <- read_csv("dedges.csv")
 nodes <- read_csv("comm_nodes.csv") %>%
@@ -45,7 +45,7 @@ nodes <- read_csv("comm_nodes.csv") %>%
          comms = gsub(',cnm1',',Clauset-Newman-Moore Greedy Algorithm',comms),
          comms = gsub(',custom_cnm1,',',Clauset-Newman-Moore Greedy Algorithm - Custom,',comms),
          comms = gsub(',lab0',',Label Propagation',comms),
-         comms = gsub(',custom_lab0',',Label Propagation',comms),
+         comms = gsub(',custom_lab0',',Label Propagation - Custom',comms),
          comms = gsub(',aflu0',',Asynchronous Fluid Community Algorithm',comms),
          comms = gsub(',custom_aflu0',',Asynchronous Fluid Community Algorithm - Custom',comms),
          comms = gsub(toss_list,'',comms),
@@ -64,7 +64,7 @@ nodes <- read_csv("comm_nodes.csv") %>%
 nodes
 ```
 
-```{r}
+```{r, echo=FALSE}
 visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
              maxVelocity = 15, 
